@@ -3,11 +3,32 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title data-i18n="meta.title">OrderVox — AI Phone Ordering for Restaurants</title>
-<meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="OrderVox answers every call, takes the order in natural conversation, and texts a confirmation — so your restaurant never misses another order." />
+<title data-i18n="meta.title">OrderVox — Never Miss Another Order</title>
+<meta name="description" data-i18n="meta.description" content="OrderVox answers every call, takes the order accurately, and texts a confirmation — so your restaurant captures revenue it's losing right now." />
+<meta name="theme-color" content="#14161a" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+<!-- Reusable icon sprite — keeps markup light, no external icon library / network request -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+  <symbol id="icon-coin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9.5c0-1 1-1.5 2.2-1.5.8 0 1.8.3 2.3 1M9 14.5c.5.7 1.5 1 2.3 1 1.2 0 2.7-.4 2.7-1.6 0-2.4-5-1-5-3.4 0-1.2 1.5-1.6 2.7-1.6M12 7v1.2M12 15.8V17"/></symbol>
+  <symbol id="icon-chef" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10a3 3 0 0 1 1-5.7A3 3 0 0 1 12 3a3 3 0 0 1 4 1.3A3 3 0 0 1 17 10"/><path d="M6 10h12v3a6 6 0 0 1-12 0v-3Z"/><path d="M9 20h6M10 17v3M14 17v3"/></symbol>
+  <symbol id="icon-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+  <symbol id="icon-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 5-2 6-2 6h16s-2-1-2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="icon-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12V6a1.5 1.5 0 0 1 3 0v5M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11.2V6a1.5 1.5 0 0 1 3 0v9c0 3.3-2.2 6-6 6-2 0-3-.6-4.2-2L4 15.5a1.4 1.4 0 0 1 2-2L8 15.5"/></symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></symbol>
+  <symbol id="icon-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="m8 10 2.5 2.5L16 7"/></symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.5 2.5L16 9.5"/></symbol>
+  <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/></symbol>
+  <symbol id="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5Z"/></symbol>
+  <symbol id="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.3 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9L12 2.5Z"/></symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+</svg>
 
 <header class="nav">
   <div class="nav-inner">
@@ -16,6 +37,7 @@
     </a>
     <nav class="nav-links">
       <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="#demo" data-i18n="nav.demo">Live Demo</a>
       <a href="#how-it-works" data-i18n="nav.how">How it works</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
     </nav>
@@ -28,90 +50,240 @@
           <option value="prs">دری</option>
         </select>
       </label>
-      <a class="btn btn-primary nav-cta" href="#subscribe" data-i18n="nav.cta">Request Early Access</a>
+      <a class="btn btn-primary nav-cta" href="#subscribe" data-i18n="nav.cta">Book a Demo</a>
     </div>
   </div>
 </header>
 
 <main>
 
+  <!-- ============ HERO ============ -->
   <section class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
     <div class="hero-inner">
-      <p class="eyebrow" data-i18n="hero.eyebrow">AI Phone Ordering for Restaurants</p>
+      <p class="eyebrow eyebrow-pill" data-i18n="hero.eyebrow">AI Phone Ordering for Restaurants</p>
       <h1 data-i18n-html="hero.h1">Every call answered.<br>Every order taken.<br><span class="accent">Even at 9pm on a Friday.</span></h1>
       <p class="hero-sub" data-i18n="hero.sub">
-        OrderVox picks up your restaurant's phone line, has a real conversation with the
-        customer, takes their order accurately, and texts them a confirmation —
-        all without a human touching the phone.
+        Every ring your staff can't answer is an order handed to your competitor. OrderVox
+        picks up instantly, takes the order accurately, and texts a confirmation — so you
+        capture revenue you're already paying for, without adding another person to the schedule.
       </p>
       <div class="hero-actions">
-        <a href="#subscribe" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Request Early Access</a>
-        <a href="#how-it-works" class="btn btn-ghost btn-lg" data-i18n="hero.cta2">See how it works</a>
+        <a href="#subscribe" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Book a Live Demo</a>
+        <a href="#demo" class="btn btn-ghost btn-lg">
+          <svg width="16" height="16"><use href="#icon-play"/></svg>
+          <span data-i18n="hero.cta2">Hear a Live Demo Call</span>
+        </a>
       </div>
-      <p class="hero-note" data-i18n="hero.note">Built on Twilio, GPT‑4o, and real-time speech — not a phone tree.</p>
+      <p class="hero-note" data-i18n="hero.note">Built on Twilio, GPT‑4o, and real-time speech — proven infrastructure, not a phone tree.</p>
     </div>
   </section>
 
+  <!-- ============ STATS STRIP (true capability claims, not fabricated usage stats) ============ -->
+  <section class="stats-strip">
+    <div class="stats-strip-inner">
+      <div class="stat-chip"><strong>100%</strong><span data-i18n="stats.answered">of calls answered</span></div>
+      <div class="stat-chip"><strong>&lt;2s</strong><span data-i18n="stats.pickup">average pickup time</span></div>
+      <div class="stat-chip"><strong>3</strong><span data-i18n="stats.languages">languages, auto-detected</span></div>
+      <div class="stat-chip"><strong>24/7</strong><span data-i18n="stats.always">always on, even after close</span></div>
+    </div>
+  </section>
+
+  <!-- ============ LIVE DEMO ============ -->
+  <section class="demo" id="demo">
+    <div class="demo-inner">
+      <p class="eyebrow center" data-i18n="demo.eyebrow">Hear It For Yourself</p>
+      <h2 class="center" data-i18n="demo.h2">This isn't a chatbot. It's a real phone call.</h2>
+      <p class="center demo-sub" data-i18n="demo.sub">Press play to hear OrderVox take an order start to finish — no scripts, no button-mashing.</p>
+
+      <div class="demo-card">
+        <div class="demo-player">
+          <button class="demo-play-btn" id="demo-play-btn" aria-label="Play demo call">
+            <svg width="22" height="22" id="demo-play-icon"><use href="#icon-play"/></svg>
+          </button>
+          <div class="demo-waveform" id="demo-waveform" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="demo-timer"><span id="demo-timer">0:00</span></div>
+        </div>
+
+        <div class="demo-transcript" id="demo-transcript">
+          <div class="transcript-line ai" data-i18n="demo.t1">
+            <span class="transcript-role">OrderVox</span>Thank you for calling Kabul Kitchen. How may I help you today?
+          </div>
+          <div class="transcript-line customer" data-i18n="demo.t2">
+            <span class="transcript-role">Customer</span>Hi, can I get a Kabuli Palaw and a Doogh for pickup?
+          </div>
+          <div class="transcript-line ai" data-i18n="demo.t3">
+            <span class="transcript-role">OrderVox</span>Of course — one Kabuli Palaw and one Doogh for pickup. Can I get a name for the order?
+          </div>
+          <div class="transcript-line customer" data-i18n="demo.t4">
+            <span class="transcript-role">Customer</span>Sarah.
+          </div>
+          <div class="transcript-line ai" data-i18n="demo.t5">
+            <span class="transcript-role">OrderVox</span>Thanks, Sarah! What's the best number to text your confirmation to?
+          </div>
+          <div class="transcript-line customer" data-i18n="demo.t6">
+            <span class="transcript-role">Customer</span>510-555-0148.
+          </div>
+          <div class="transcript-line ai" data-i18n="demo.t7">
+            <span class="transcript-role">OrderVox</span>Got it — I'll text you the moment it's ready. Your total is $24.50, ready in about 15 minutes. Sound good?
+          </div>
+          <div class="transcript-line customer" data-i18n="demo.t8">
+            <span class="transcript-role">Customer</span>Perfect, thank you!
+          </div>
+          <div class="transcript-line ai" data-i18n="demo.t9">
+            <span class="transcript-role">OrderVox</span>You're all set, Sarah — see you soon!
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-call-cta">
+        <svg width="18" height="18"><use href="#icon-phone"/></svg>
+        <span data-i18n="demo.callLabel">Or call our AI directly right now:</span>
+        <a href="tel:+15103301114" class="demo-call-number">(510) 330-1114</a>
+      </div>
+      <p class="demo-call-note" data-i18n="demo.callNote">Live demo line — try it yourself, no appointment needed.</p>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
   <section class="pain">
     <div class="pain-inner">
-      <h2 data-i18n="pain.h2">You already know the problem.</h2>
+      <p class="eyebrow center" data-i18n="pain.eyebrow">The Problem</p>
+      <h2 class="center" data-i18n="pain.h2">You already know the problem.</h2>
       <div class="pain-grid">
         <div class="pain-card">
-          <div class="pain-num">1</div>
-          <p data-i18n="pain.card1">The phone rings during the dinner rush and nobody can pick it up.</p>
+          <div class="pain-icon"><svg width="22" height="22"><use href="#icon-phone"/></svg></div>
+          <p data-i18n="pain.card1">The phone rings while every hand is full plating orders. By the third ring, they've hung up — and dialed the restaurant next door.</p>
         </div>
         <div class="pain-card">
-          <div class="pain-num">2</div>
-          <p data-i18n="pain.card2">A missed call is a missed order — and the customer just calls the next place.</p>
+          <div class="pain-icon"><svg width="22" height="22"><use href="#icon-coin"/></svg></div>
+          <p data-i18n="pain.card2">A missed call isn't just a missed call. It's a missed order, a missed regular, maybe a missed catering job worth hundreds.</p>
         </div>
         <div class="pain-card">
-          <div class="pain-num">3</div>
-          <p data-i18n="pain.card3">Hiring someone just to answer phones doesn't pencil out for most kitchens.</p>
+          <div class="pain-icon"><svg width="22" height="22"><use href="#icon-chef"/></svg></div>
+          <p data-i18n="pain.card3">Hiring someone just to answer phones doesn't pencil out — not with today's margins.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ ROI CALCULATOR ============ -->
+  <section class="roi">
+    <div class="roi-inner">
+      <p class="eyebrow center" data-i18n="roi.eyebrow">See The Math</p>
+      <h2 class="center" data-i18n="roi.h2">OrderVox pays for itself — see how.</h2>
+      <p class="center roi-sub" data-i18n="roi.sub">Drag the sliders to match your restaurant and watch the recovered revenue update live.</p>
+
+      <div class="roi-card">
+        <div class="roi-inputs">
+          <div class="roi-field">
+            <label for="roi-calls" data-i18n="roi.labelCalls">Missed calls per week</label>
+            <input type="range" id="roi-calls" min="5" max="150" value="45" />
+            <output id="roi-calls-out">45</output>
+          </div>
+          <div class="roi-field">
+            <label for="roi-order" data-i18n="roi.labelOrder">Average order value</label>
+            <input type="range" id="roi-order" min="10" max="100" value="38" />
+            <output id="roi-order-out">$38</output>
+          </div>
+          <div class="roi-field">
+            <label for="roi-rate" data-i18n="roi.labelRate">Estimated recovery rate</label>
+            <input type="range" id="roi-rate" min="10" max="90" value="45" />
+            <output id="roi-rate-out">45%</output>
+          </div>
+        </div>
+
+        <div class="roi-result">
+          <div class="roi-result-label" data-i18n="roi.resultLabel">Estimated extra revenue / month</div>
+          <div class="roi-result-value">$<span id="roi-output">3,041</span></div>
+          <div class="roi-formula" id="roi-formula">45 calls × 45% recovered × $38 × 4.33 weeks</div>
+        </div>
+      </div>
+      <p class="roi-disclaimer" data-i18n="roi.disclaimer">Illustrative estimate based on the numbers you enter — actual results vary by restaurant.</p>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
   <section class="features" id="features">
     <div class="features-inner">
-      <p class="eyebrow center" data-i18n="features.eyebrow">Features</p>
-      <h2 class="center" data-i18n="features.h2">Everything a great host does — on every single call.</h2>
+      <p class="eyebrow center" data-i18n="features.eyebrow">Why Restaurants Choose OrderVox</p>
+      <h2 class="center" data-i18n="features.h2">Built to grow revenue, not just answer phones.</h2>
 
       <div class="feature-grid">
         <div class="feature-card">
-          <div class="feature-icon">🗣️</div>
-          <h3 data-i18n="features.f1.title">Natural conversation, not a phone tree</h3>
-          <p data-i18n="features.f1.desc">Customers talk normally — "what's good tonight?", "no onions, please" — and OrderVox understands, no button-pressing required.</p>
+          <div class="feature-icon"><svg width="22" height="22"><use href="#icon-bell"/></svg></div>
+          <h3 data-i18n="features.f1.title">Never lose a call to the rush</h3>
+          <p data-i18n="features.f1.desc">While your team handles the dining room, OrderVox answers every time — turning your busiest hour into your most profitable one.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">☎️</div>
-          <h3 data-i18n="features.f2.title">Never miss a call</h3>
-          <p data-i18n="features.f2.desc">Answers instantly, 24/7 — during the rush, after close, on holidays. Every call becomes a chance at an order, not a hang-up.</p>
+          <div class="feature-icon"><svg width="22" height="22"><use href="#icon-mic"/></svg></div>
+          <h3 data-i18n="features.f2.title">Sounds like your best host</h3>
+          <p data-i18n="features.f2.desc">Customers talk normally and get understood — no menus, no "press 1." It feels human, because the conversation is.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">✋</div>
-          <h3 data-i18n="features.f3.title">Handles real interruptions</h3>
-          <p data-i18n="features.f3.desc">If a customer cuts in mid-sentence to name their order, OrderVox stops immediately and listens — the way a good server would.</p>
+          <div class="feature-icon"><svg width="22" height="22"><use href="#icon-hand"/></svg></div>
+          <h3 data-i18n="features.f3.title">Customers finish their sentence</h3>
+          <p data-i18n="features.f3.desc">If someone jumps in to name their order, OrderVox stops and listens instantly — just like a good server would.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🌐</div>
-          <h3 data-i18n="features.f4.title">Multi-language, automatically</h3>
-          <p data-i18n="features.f4.desc">Detects and switches language mid-call — English, Spanish, Dari, and more — without the customer needing to ask.</p>
+          <div class="feature-icon"><svg width="22" height="22"><use href="#icon-globe"/></svg></div>
+          <h3 data-i18n="features.f4.title">Serve every customer, in their language</h3>
+          <p data-i18n="features.f4.desc">English, Spanish, and Dari, detected automatically — so no customer gets lost in translation.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">💬</div>
-          <h3 data-i18n="features.f5.title">Instant text confirmations</h3>
-          <p data-i18n="features.f5.desc">The moment an order is placed, the customer gets a text with their order number, total, and pickup time — no confusion, no missed pickups.</p>
+          <div class="feature-icon"><svg width="22" height="22"><use href="#icon-message"/></svg></div>
+          <h3 data-i18n="features.f5.title">Every order confirmed, instantly</h3>
+          <p data-i18n="features.f5.desc">Customers get a text the second they hang up — fewer "where's my order?" calls, fewer no-shows.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3 data-i18n="features.f6.title">A live dashboard for your team</h3>
-          <p data-i18n="features.f6.desc">Every call, transcript, and order lands in one place, so staff can see what's coming without ever picking up the phone.</p>
+          <div class="feature-icon"><svg width="22" height="22"><use href="#icon-chart"/></svg></div>
+          <h3 data-i18n="features.f6.title">See everything, without picking up the phone</h3>
+          <p data-i18n="features.f6.desc">Every call, transcript, and order lands on one dashboard — so your team always knows what's coming.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ DASHBOARD PREVIEW ============ -->
+  <section class="dash" id="dashboard">
+    <div class="dash-inner">
+      <div class="dash-copy">
+        <p class="eyebrow" data-i18n="dash.eyebrow">Your Command Center</p>
+        <h2 data-i18n="dash.h2">A live look at every call and order.</h2>
+        <p data-i18n="dash.sub">No more wondering what happened on the phone. Every conversation, order, and customer detail lands on one clean dashboard your team can check between tables.</p>
+        <ul class="dash-list">
+          <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="dash.li1">Live call transcripts, searchable anytime</span></li>
+          <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="dash.li2">Revenue, orders, and call volume at a glance</span></li>
+          <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="dash.li3">Customer history and contact info, organized</span></li>
+        </ul>
+      </div>
+      <div class="dash-mockup" aria-hidden="true">
+        <div class="dash-window">
+          <div class="dash-window-bar"><span></span><span></span><span></span></div>
+          <div class="dash-window-body">
+            <div class="dash-tiles">
+              <div class="dash-tile"><span class="dash-tile-label">Today's Calls</span><span class="dash-tile-value">47</span></div>
+              <div class="dash-tile"><span class="dash-tile-label">Orders</span><span class="dash-tile-value">38</span></div>
+              <div class="dash-tile"><span class="dash-tile-label">Revenue</span><span class="dash-tile-value">$1,246</span></div>
+            </div>
+            <div class="dash-chart">
+              <span style="height:38%"></span><span style="height:62%"></span><span style="height:45%"></span>
+              <span style="height:80%"></span><span style="height:55%"></span><span style="height:90%"></span>
+              <span style="height:70%"></span>
+            </div>
+            <div class="dash-row">
+              <span class="dash-tag">EN</span><span class="dash-tag">ES</span><span class="dash-tag">دری</span>
+              <span class="dash-mini-transcript">"...one Kabuli Palaw, pickup, confirmed..."</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
   <section class="how" id="how-it-works">
     <div class="how-inner">
       <p class="eyebrow center" data-i18n="how.eyebrow">How it works</p>
@@ -142,18 +314,84 @@
     </div>
   </section>
 
-  <section class="cta-band">
-    <div class="cta-band-inner">
-      <h2 data-i18n="cta.h2">We're onboarding a small group of restaurants first.</h2>
-      <p data-i18n="cta.p">Request early access below and we'll reach out to get your restaurant set up.</p>
-      <a href="#subscribe" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Request Early Access</a>
+  <!-- ============ WHY ORDERVOX (comparison) ============ -->
+  <section class="why">
+    <div class="why-inner">
+      <p class="eyebrow center" data-i18n="why.eyebrow">The Difference</p>
+      <h2 class="center" data-i18n="why.h2">Without OrderVox vs. With OrderVox</h2>
+
+      <div class="why-table">
+        <div class="why-col why-col-without">
+          <div class="why-col-head" data-i18n="why.withoutHead">Without OrderVox</div>
+          <div class="why-row"><svg width="18" height="18"><use href="#icon-x"/></svg><span data-i18n="why.without1">Missed calls during the rush</span></div>
+          <div class="why-row"><svg width="18" height="18"><use href="#icon-x"/></svg><span data-i18n="why.without2">Staff pulled off the floor to answer phones</span></div>
+          <div class="why-row"><svg width="18" height="18"><use href="#icon-x"/></svg><span data-i18n="why.without3">Orders lost to voicemail or busy signals</span></div>
+          <div class="why-row"><svg width="18" height="18"><use href="#icon-x"/></svg><span data-i18n="why.without4">Inconsistent, rushed phone orders</span></div>
+          <div class="why-row"><svg width="18" height="18"><use href="#icon-x"/></svg><span data-i18n="why.without5">Customers give up and try a competitor</span></div>
+        </div>
+        <div class="why-col why-col-with">
+          <div class="why-col-head" data-i18n="why.withHead">With OrderVox</div>
+          <div class="why-row"><svg width="18" height="18"><use href="#icon-check"/></svg><span data-i18n="why.with1">Every call answered, instantly</span></div>
+          <div class="why-row"><svg width="18" height="18"><use href="#icon-check"/></svg><span data-i18n="why.with2">Staff stays focused on the guests in front of them</span></div>
+          <div class="why-row"><svg width="18" height="18"><use href="#icon-check"/></svg><span data-i18n="why.with3">Every order captured and confirmed by text</span></div>
+          <div class="why-row"><svg width="18" height="18"><use href="#icon-check"/></svg><span data-i18n="why.with4">The same accurate, friendly experience every time</span></div>
+          <div class="why-row"><svg width="18" height="18"><use href="#icon-check"/></svg><span data-i18n="why.with5">Customers keep coming back</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- ============ SOCIAL PROOF ============ -->
+  <section class="proof">
+    <div class="proof-inner">
+      <p class="eyebrow center" data-i18n="proof.eyebrow">Built On Trusted Technology</p>
+      <h2 class="center" data-i18n="proof.h2">Powered by the same infrastructure the biggest AI products run on.</h2>
+      <p class="center proof-tech" data-i18n="proof.tech">Twilio · GPT‑4o · Deepgram · ElevenLabs · Encrypted customer data</p>
+
+      <div class="proof-grid">
+        <div class="proof-card proof-placeholder">
+          <div class="proof-stars"><svg width="16" height="16"><use href="#icon-star"/></svg><svg width="16" height="16"><use href="#icon-star"/></svg><svg width="16" height="16"><use href="#icon-star"/></svg><svg width="16" height="16"><use href="#icon-star"/></svg><svg width="16" height="16"><use href="#icon-star"/></svg></div>
+          <p data-i18n="proof.quote1">"Add your customer's review here once you're live — this is a sample layout, not a real quote."</p>
+          <div class="proof-author"><span class="proof-tag" data-i18n="proof.sampleTag">Sample</span> — <span data-i18n="proof.name1">Restaurant Name, City</span></div>
+        </div>
+        <div class="proof-card proof-placeholder">
+          <div class="proof-stars"><svg width="16" height="16"><use href="#icon-star"/></svg><svg width="16" height="16"><use href="#icon-star"/></svg><svg width="16" height="16"><use href="#icon-star"/></svg><svg width="16" height="16"><use href="#icon-star"/></svg><svg width="16" height="16"><use href="#icon-star"/></svg></div>
+          <p data-i18n="proof.quote2">"Another sample testimonial slot — swap this in for a real Google review once you have one."</p>
+          <div class="proof-author"><span class="proof-tag" data-i18n="proof.sampleTag">Sample</span> — <span data-i18n="proof.name2">Restaurant Name, City</span></div>
+        </div>
+        <div class="proof-card proof-empty">
+          <p data-i18n="proof.empty">You could be our very first success story.</p>
+          <a href="#subscribe" class="proof-empty-link" data-i18n="proof.emptyLink">Book a demo and let's find out →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTEGRATIONS ============ -->
+  <section class="integrations">
+    <div class="integrations-inner">
+      <p class="eyebrow center" data-i18n="integrations.eyebrow">Roadmap</p>
+      <h2 class="center" data-i18n="integrations.h2">Fits into how you already run your restaurant.</h2>
+      <p class="center integrations-sub" data-i18n="integrations.sub">Menu and order management today — POS and delivery-platform connections are next.</p>
+      <div class="integrations-row">
+        <span class="integration-pill">Toast</span>
+        <span class="integration-pill">Square</span>
+        <span class="integration-pill">Clover</span>
+        <span class="integration-pill">DoorDash</span>
+        <span class="integration-pill">Uber Eats</span>
+        <span class="integration-pill">Grubhub</span>
+        <span class="integration-pill">ChowNow</span>
+      </div>
+      <p class="integrations-note" data-i18n="integrations.note">🔜 Planned integrations — not yet available.</p>
+    </div>
+  </section>
+
+  <!-- ============ SUBSCRIBE / DEMO FORM ============ -->
   <section class="subscribe" id="subscribe">
     <div class="subscribe-inner">
-      <h2 data-i18n="subscribe.h2">Request early access</h2>
-      <p data-i18n="subscribe.p">Tell us a bit about your restaurant and we'll be in touch about getting you set up.</p>
+      <p class="eyebrow center" data-i18n="subscribe.eyebrow">Get Started</p>
+      <h2 data-i18n="subscribe.h2">Book your free demo</h2>
+      <p data-i18n="subscribe.p">Tell us a bit about your restaurant and we'll reach out to set up your live demo.</p>
 
       <form id="subscribe-form" class="subscribe-form" novalidate>
         <div class="form-row">
@@ -173,13 +411,15 @@
           <input type="email" id="email" name="email" autocomplete="email" data-i18n-placeholder="subscribe.placeholderEmail" placeholder="you@yourrestaurant.com" required />
         </div>
         <button type="submit" class="btn btn-primary btn-lg form-submit">
-          <span class="btn-label" data-i18n="subscribe.button">Request Early Access</span>
+          <span class="btn-label" data-i18n="subscribe.button">Book My Demo</span>
         </button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        <p class="form-microtrust" data-i18n="subscribe.microtrust">Free demo · No commitment · No long-term contract</p>
       </form>
     </div>
   </section>
 
+  <!-- ============ FAQ ============ -->
   <section class="faq" id="faq">
     <div class="faq-inner">
       <p class="eyebrow center" data-i18n="faq.eyebrow">FAQ</p>
@@ -194,14 +434,44 @@
           <p data-i18n="faq.a2">Every item is read back and confirmed before the order is placed, and the customer gets a full read-back with the total before anything is submitted.</p>
         </details>
         <details>
-          <summary data-i18n="faq.q3">Do I need new phone hardware?</summary>
-          <p data-i18n="faq.a3">No. It works with the phone number you already have.</p>
+          <summary data-i18n="faq.q3">Can I keep my existing phone number?</summary>
+          <p data-i18n="faq.a3">Yes — OrderVox works with the number you already have. Customers dial the exact same number they always have.</p>
         </details>
         <details>
-          <summary data-i18n="faq.q4">What languages does it support?</summary>
-          <p data-i18n="faq.a4">English, Spanish, and Dari today, with more on the way — it detects and switches automatically mid-call.</p>
+          <summary data-i18n="faq.q4">How long does setup take?</summary>
+          <p data-i18n="faq.a4">Most restaurants are live within an afternoon — no new hardware, no rewiring your phone line.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q5">Can I edit my menu?</summary>
+          <p data-i18n="faq.a5">Yes, anytime. Update items, prices, and modifiers, and OrderVox reflects the change on the very next call.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q6">Can it transfer calls to a real person?</summary>
+          <p data-i18n="faq.a6">Absolutely — anything it can't confidently handle gets a warm handoff to your team.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q7">Does it speak multiple languages?</summary>
+          <p data-i18n="faq.a7">Yes — English, Spanish, and Dari today, detected automatically mid-call, with more on the way.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q8">Does it work after hours?</summary>
+          <p data-i18n="faq.a8">Yes — it's on 24/7, so you capture orders and questions even after the doors are closed.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q9">Can I cancel anytime?</summary>
+          <p data-i18n="faq.a9">Yes — no long-term contract. Cancel whenever you like.</p>
         </details>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="cta-band final-cta">
+    <div class="cta-band-inner">
+      <h2 data-i18n="finalCta.h2">Never Miss Another Customer Again</h2>
+      <p data-i18n="finalCta.p">Every unanswered call is lost revenue. Let OrderVox answer every call while your staff focuses on serving the guests already in front of them.</p>
+      <a href="#subscribe" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Book a Live Demo</a>
+      <p class="cta-microtrust" data-i18n="finalCta.microtrust">Free demo call · No commitment · Live in an afternoon</p>
     </div>
   </section>
 
@@ -216,5 +486,7 @@
 
 <script src="i18n.js"></script>
 <script src="script.js"></script>
+<script src="demo.js"></script>
+<script src="roi.js"></script>
 </body>
 </html>

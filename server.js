@@ -76,7 +76,7 @@ app.post("/api/subscribe", async (req, res) => {
       .sendMail({
         from: process.env.SMTP_USER,
         to: notifyEmails.join(","),
-        subject: "New OrderVox early-access request",
+        subject: "New OrderVox demo request",
         text: [
           `Name: ${entry.name || "(not provided)"}`,
           `Restaurant: ${entry.restaurantName || "(not provided)"}`,
