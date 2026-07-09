@@ -1,0 +1,19 @@
+{
+  "name": "ordervox-marketing-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Marketing website for OrderVox AI voice ordering, with an early-access subscription form.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.14"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="meta.title">OrderVox — AI Phone Ordering for Restaurants</title>
+<meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="OrderVox answers every call, takes the order in natural conversation, and texts a confirmation — so your restaurant never misses another order." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">◐</span> OrderVox
+    </a>
+    <nav class="nav-links">
+      <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="#how-it-works" data-i18n="nav.how">How it works</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <label class="lang-select-wrap" aria-label="Language">
+        <span class="lang-globe" aria-hidden="true">🌐</span>
+        <select id="lang-select">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="prs">دری</option>
+        </select>
+      </label>
+      <a class="btn btn-primary nav-cta" href="#subscribe" data-i18n="nav.cta">Request Early Access</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <p class="eyebrow" data-i18n="hero.eyebrow">AI Phone Ordering for Restaurants</p>
+      <h1 data-i18n-html="hero.h1">Every call answered.<br>Every order taken.<br><span class="accent">Even at 9pm on a Friday.</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">
+        OrderVox picks up your restaurant's phone line, has a real conversation with the
+        customer, takes their order accurately, and texts them a confirmation —
+        all without a human touching the phone.
+      </p>
+      <div class="hero-actions">
+        <a href="#subscribe" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Request Early Access</a>
+        <a href="#how-it-works" class="btn btn-ghost btn-lg" data-i18n="hero.cta2">See how it works</a>
+      </div>
+      <p class="hero-note" data-i18n="hero.note">Built on Twilio, GPT‑4o, and real-time speech — not a phone tree.</p>
+    </div>
+  </section>
+
+  <section class="pain">
+    <div class="pain-inner">
+      <h2 data-i18n="pain.h2">You already know the problem.</h2>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-num">1</div>
+          <p data-i18n="pain.card1">The phone rings during the dinner rush and nobody can pick it up.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-num">2</div>
+          <p data-i18n="pain.card2">A missed call is a missed order — and the customer just calls the next place.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-num">3</div>
+          <p data-i18n="pain.card3">Hiring someone just to answer phones doesn't pencil out for most kitchens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="features-inner">
+      <p class="eyebrow center" data-i18n="features.eyebrow">Features</p>
+      <h2 class="center" data-i18n="features.h2">Everything a great host does — on every single call.</h2>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🗣️</div>
+          <h3 data-i18n="features.f1.title">Natural conversation, not a phone tree</h3>
+          <p data-i18n="features.f1.desc">Customers talk normally — "what's good tonight?", "no onions, please" — and OrderVox understands, no button-pressing required.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">☎️</div>
+          <h3 data-i18n="features.f2.title">Never miss a call</h3>
+          <p data-i18n="features.f2.desc">Answers instantly, 24/7 — during the rush, after close, on holidays. Every call becomes a chance at an order, not a hang-up.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✋</div>
+          <h3 data-i18n="features.f3.title">Handles real interruptions</h3>
+          <p data-i18n="features.f3.desc">If a customer cuts in mid-sentence to name their order, OrderVox stops immediately and listens — the way a good server would.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3 data-i18n="features.f4.title">Multi-language, automatically</h3>
+          <p data-i18n="features.f4.desc">Detects and switches language mid-call — English, Spanish, Dari, and more — without the customer needing to ask.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3 data-i18n="features.f5.title">Instant text confirmations</h3>
+          <p data-i18n="features.f5.desc">The moment an order is placed, the customer gets a text with their order number, total, and pickup time — no confusion, no missed pickups.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 data-i18n="features.f6.title">A live dashboard for your team</h3>
+          <p data-i18n="features.f6.desc">Every call, transcript, and order lands in one place, so staff can see what's coming without ever picking up the phone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how-it-works">
+    <div class="how-inner">
+      <p class="eyebrow center" data-i18n="how.eyebrow">How it works</p>
+      <h2 class="center" data-i18n="how.h2">Live in an afternoon. No new hardware.</h2>
+
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3 data-i18n="how.s1.title">Connect your number</h3>
+          <p data-i18n="how.s1.desc">OrderVox routes through your existing restaurant phone number — customers dial the number they already know.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3 data-i18n="how.s2.title">We load your menu</h3>
+          <p data-i18n="how.s2.desc">Your real menu, prices, and modifiers go in once — OrderVox only ever speaks from that data, never guesses.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3 data-i18n="how.s3.title">Customers call and order</h3>
+          <p data-i18n="how.s3.desc">A natural conversation, start to finish: greeting, order, confirmation, and a warm handoff to a human if anything gets complicated.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">4</div>
+          <h3 data-i18n="how.s4.title">You get the order — and the data</h3>
+          <p data-i18n="how.s4.desc">The order appears on your dashboard and the customer's phone, in real time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <h2 data-i18n="cta.h2">We're onboarding a small group of restaurants first.</h2>
+      <p data-i18n="cta.p">Request early access below and we'll reach out to get your restaurant set up.</p>
+      <a href="#subscribe" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Request Early Access</a>
+    </div>
+  </section>
+
+  <section class="subscribe" id="subscribe">
+    <div class="subscribe-inner">
+      <h2 data-i18n="subscribe.h2">Request early access</h2>
+      <p data-i18n="subscribe.p">Tell us a bit about your restaurant and we'll be in touch about getting you set up.</p>
+
+      <form id="subscribe-form" class="subscribe-form" novalidate>
+        <div class="form-row">
+          <label for="name" data-i18n="subscribe.labelName">Your name</label>
+          <input type="text" id="name" name="name" autocomplete="name" data-i18n-placeholder="subscribe.placeholderName" placeholder="Jane Doe" />
+        </div>
+        <div class="form-row">
+          <label for="restaurantName" data-i18n="subscribe.labelRestaurant">Restaurant name</label>
+          <input type="text" id="restaurantName" name="restaurantName" autocomplete="organization" data-i18n-placeholder="subscribe.placeholderRestaurant" placeholder="Kabul Kitchen" />
+        </div>
+        <div class="form-row">
+          <label for="phone" data-i18n="subscribe.labelPhone">Contact phone</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" data-i18n-placeholder="subscribe.placeholderPhone" placeholder="(555) 123-4567" />
+        </div>
+        <div class="form-row">
+          <label for="email"><span data-i18n="subscribe.labelEmail">Email</span> <span class="required">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" data-i18n-placeholder="subscribe.placeholderEmail" placeholder="you@yourrestaurant.com" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg form-submit">
+          <span class="btn-label" data-i18n="subscribe.button">Request Early Access</span>
+        </button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="faq-inner">
+      <p class="eyebrow center" data-i18n="faq.eyebrow">FAQ</p>
+      <h2 class="center" data-i18n="faq.h2">Good questions</h2>
+      <div class="faq-list">
+        <details>
+          <summary data-i18n="faq.q1">Does it replace my staff?</summary>
+          <p data-i18n="faq.a1">No — it handles the phone so your staff can focus on the kitchen and the dining room. Anything it can't confidently handle gets warmly transferred to a real person.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q2">What if it mishears an order?</summary>
+          <p data-i18n="faq.a2">Every item is read back and confirmed before the order is placed, and the customer gets a full read-back with the total before anything is submitted.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q3">Do I need new phone hardware?</summary>
+          <p data-i18n="faq.a3">No. It works with the phone number you already have.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q4">What languages does it support?</summary>
+          <p data-i18n="faq.a4">English, Spanish, and Dari today, with more on the way — it detects and switches automatically mid-call.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> OrderVox</span>
+    <a href="mailto:saharbaher2019@gmail.com">saharbaher2019@gmail.com</a>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
