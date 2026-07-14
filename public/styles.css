@@ -107,13 +107,23 @@ section { position: relative; }
   gap: 1rem;
 }
 .brand {
-  font-weight: 800;
+  font-weight: 500;
   font-size: 1.15rem;
   display: flex;
   align-items: center;
-  gap: 0.4em;
 }
-.brand-mark { color: var(--accent); }
+/* Wordmark lockup: "Order" in regular weight ink, "Vox" bold white-on-purple
+   chip. This is the logo — no separate icon/mark anywhere else, by design
+   (see DESIGN-AUDIT.md, concept T). Reused for nav + footer; a plain "OV"
+   version of the same chip is the favicon (see favicon.svg). */
+.brand-vox {
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  padding: 0.05em 0.32em;
+  border-radius: 6px;
+  margin-left: 0.05em;
+}
 .nav-links {
   display: flex;
   gap: 1.75rem;
@@ -129,6 +139,19 @@ section { position: relative; }
   align-items: center;
   gap: 0.9rem;
   flex-shrink: 0;
+}
+.nav-phone {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.nav-phone svg { color: var(--accent); flex-shrink: 0; }
+@media (max-width: 860px) {
+  .nav-phone { display: none; }
 }
 .lang-select-wrap {
   display: flex;
@@ -174,7 +197,24 @@ section { position: relative; }
   pointer-events: none;
   filter: blur(10px);
 }
-.hero-inner { position: relative; max-width: 760px; margin: 0 auto; text-align: center; }
+.hero-grid {
+  position: relative;
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+  align-items: center;
+}
+.hero-inner { max-width: 620px; text-align: center; }
+.hero-visual { display: flex; justify-content: center; }
+.hero-visual img { width: 100%; max-width: 420px; height: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35)); }
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-inner { max-width: 620px; margin: 0 auto; }
+  .hero-visual { order: -1; }
+  .hero-visual img { max-width: 260px; }
+}
 .hero h1 { font-size: clamp(2.1rem, 5.4vw, 3.4rem); color: #fff; }
 .hero .accent {
   background: linear-gradient(120deg, #b7a9ff, #efe9ff);
@@ -434,6 +474,65 @@ section { position: relative; }
 .feature-card h3 { font-size: 1.08rem; margin-bottom: 0.4em; }
 .feature-card p { font-size: 0.93rem; margin: 0; }
 
+/* Feature tour (alternating deep-dive rows) */
+.tour { padding: 5.5rem 1.5rem; background: var(--paper-soft); }
+.tour-inner { max-width: var(--max); margin: 0 auto; }
+.tour h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin-bottom: 3.5rem; }
+.tour-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.tour-row:not(:last-child) { margin-bottom: 4rem; }
+.tour-row.reverse .tour-copy { order: 2; }
+.tour-row.reverse .tour-visual { order: 1; }
+@media (max-width: 780px) {
+  .tour-row { grid-template-columns: 1fr; }
+  .tour-row.reverse .tour-copy, .tour-row.reverse .tour-visual { order: initial; }
+}
+.tour-num {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  padding: 0.3em 0.8em;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+.tour-copy h3 { font-size: 1.4rem; margin-bottom: 0.6rem; }
+.tour-list { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: 0.8rem; }
+.tour-list li { display: flex; align-items: flex-start; gap: 0.7em; font-weight: 600; color: var(--ink); font-size: 0.94rem; }
+.tour-list li svg { flex-shrink: 0; margin-top: 0.2em; color: var(--good); }
+.tour-visual { display: flex; justify-content: center; }
+.tour-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 1.75rem;
+  width: 100%;
+  max-width: 380px;
+}
+.tour-card-convo { display: grid; gap: 0.7rem; }
+.tour-convo-line { font-size: 0.9rem; padding: 0.6em 0.85em; border-radius: 10px; color: var(--ink); }
+.tour-convo-line.ai { background: var(--accent-soft); }
+.tour-convo-line.customer { background: var(--paper-soft); }
+.tour-convo-role { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; color: var(--accent-dark); margin-bottom: 0.2em; }
+.tour-card-sms { display: flex; align-items: flex-start; gap: 0.9rem; }
+.tour-card-sms svg { color: var(--accent); flex-shrink: 0; margin-top: 0.2rem; }
+.tour-sms-bubble {
+  background: var(--accent-soft);
+  border-radius: 14px;
+  border-bottom-left-radius: 4px;
+  padding: 0.9em 1.1em;
+  display: grid;
+  gap: 0.3rem;
+}
+.tour-sms-bubble strong { color: var(--good); font-size: 0.98rem; }
+.tour-sms-bubble span { font-size: 0.88rem; color: var(--ink); }
+
 /* Dashboard preview */
 .dash { padding: 5.5rem 1.5rem; }
 .dash-inner {
@@ -633,6 +732,21 @@ section { position: relative; }
 
 /* Subscribe */
 .subscribe { padding: 5.5rem 1.5rem; }
+.subscribe-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.subscribe-visual { display: flex; justify-content: center; }
+.subscribe-visual img { width: 100%; max-width: 360px; height: auto; }
+@media (max-width: 860px) {
+  .subscribe-grid { grid-template-columns: 1fr; }
+  .subscribe-visual { order: -1; }
+  .subscribe-visual img { max-width: 220px; }
+}
 .subscribe-inner { max-width: 480px; margin: 0 auto; text-align: center; }
 .subscribe h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
 .subscribe-form { text-align: left; margin-top: 2rem; }
@@ -704,6 +818,8 @@ section { position: relative; }
   font-size: 0.85rem;
   color: var(--ink-soft);
 }
+.footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.footer-links a:hover { color: var(--ink); }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
@@ -720,8 +836,12 @@ html[dir="rtl"] body { direction: rtl; }
 html[dir="rtl"] .pain-card,
 html[dir="rtl"] .how-step,
 html[dir="rtl"] .why-row,
-html[dir="rtl"] .dash-copy {
+html[dir="rtl"] .dash-copy,
+html[dir="rtl"] .tour-copy {
   text-align: right;
+}
+@media (min-width: 901px) {
+  html[dir="rtl"] .hero-inner { text-align: right; }
 }
 html[dir="rtl"] .faq-list summary::after {
   float: left;
@@ -731,3 +851,24 @@ html[dir="rtl"] .subscribe-form {
 }
 html[dir="rtl"] .demo-timer { text-align: left; }
 html[dir="rtl"] .roi-field output { text-align: left; }
+
+/* Legal pages (Privacy Policy, Terms) — plain prose, reuses the site's
+   existing header/footer chrome so these don't look like a different site. */
+.legal-main { padding: 3.5rem 1.5rem 5rem; }
+.legal-inner { max-width: 720px; margin: 0 auto; }
+.legal-inner h1 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); margin-bottom: 0.3rem; }
+.legal-updated { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 2rem; }
+.legal-disclaimer {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-2);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+}
+.legal-inner h2 { font-size: 1.25rem; margin: 2.2rem 0 0.8rem; }
+.legal-inner p, .legal-inner li { color: var(--ink-soft); font-size: 0.98rem; }
+.legal-inner ul { padding-left: 1.2rem; margin: 0 0 1em; }
+.legal-inner li { margin-bottom: 0.4em; }
+.legal-back { display: inline-block; margin-bottom: 2rem; color: var(--accent-dark); font-weight: 700; font-size: 0.92rem; }

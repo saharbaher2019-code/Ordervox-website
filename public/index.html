@@ -6,6 +6,7 @@
 <title data-i18n="meta.title">OrderVox — Never Miss Another Order</title>
 <meta name="description" data-i18n="meta.description" content="OrderVox answers every call, takes the order accurately, and texts a confirmation — so your restaurant captures revenue it's losing right now." />
 <meta name="theme-color" content="#14161a" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -32,9 +33,7 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top">
-      <span class="brand-mark">◐</span> OrderVox
-    </a>
+    <a class="brand" href="#top">Order<span class="brand-vox">Vox</span></a>
     <nav class="nav-links">
       <a href="#features" data-i18n="nav.features">Features</a>
       <a href="#demo" data-i18n="nav.demo">Live Demo</a>
@@ -42,6 +41,10 @@
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
     </nav>
     <div class="nav-right">
+      <a class="nav-phone" href="tel:+15103301114">
+        <svg width="15" height="15"><use href="#icon-phone"/></svg>
+        <span>(510) 330-1114</span>
+      </a>
       <label class="lang-select-wrap" aria-label="Language">
         <span class="lang-globe" aria-hidden="true">🌐</span>
         <select id="lang-select">
@@ -60,22 +63,27 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
     <div class="hero-glow" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <p class="eyebrow eyebrow-pill" data-i18n="hero.eyebrow">AI Phone Ordering for Restaurants</p>
-      <h1 data-i18n-html="hero.h1">Every call answered.<br>Every order taken.<br><span class="accent">Even at 9pm on a Friday.</span></h1>
-      <p class="hero-sub" data-i18n="hero.sub">
-        Every ring your staff can't answer is an order handed to your competitor. OrderVox
-        picks up instantly, takes the order accurately, and texts a confirmation — so you
-        capture revenue you're already paying for, without adding another person to the schedule.
-      </p>
-      <div class="hero-actions">
-        <a href="#subscribe" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Book a Live Demo</a>
-        <a href="#demo" class="btn btn-ghost btn-lg">
-          <svg width="16" height="16"><use href="#icon-play"/></svg>
-          <span data-i18n="hero.cta2">Hear a Live Demo Call</span>
-        </a>
+    <div class="hero-grid">
+      <div class="hero-inner">
+        <p class="eyebrow eyebrow-pill" data-i18n="hero.eyebrow">AI Phone Ordering for Restaurants</p>
+        <h1 data-i18n-html="hero.h1">Every call answered.<br>Every order taken.<br><span class="accent">Even at 9pm on a Friday.</span></h1>
+        <p class="hero-sub" data-i18n="hero.sub">
+          Every ring your staff can't answer is an order handed to your competitor. OrderVox
+          picks up instantly, takes the order accurately, and texts a confirmation — so you
+          capture revenue you're already paying for, without adding another person to the schedule.
+        </p>
+        <div class="hero-actions">
+          <a href="#subscribe" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Book a Live Demo</a>
+          <a href="#demo" class="btn btn-ghost btn-lg">
+            <svg width="16" height="16"><use href="#icon-play"/></svg>
+            <span data-i18n="hero.cta2">Hear a Live Demo Call</span>
+          </a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note">Built on Twilio, GPT‑4o, and real-time speech — proven infrastructure, not a phone tree.</p>
       </div>
-      <p class="hero-note" data-i18n="hero.note">Built on Twilio, GPT‑4o, and real-time speech — proven infrastructure, not a phone tree.</p>
+      <div class="hero-visual" aria-hidden="true">
+        <img src="illustrations/drinking-coffee.svg" alt="" width="480" height="480" loading="eager" />
+      </div>
     </div>
   </section>
 
@@ -246,6 +254,58 @@
     </div>
   </section>
 
+  <!-- ============ FEATURE TOUR (deep-dive, alternating) ============ -->
+  <section class="tour" id="tour">
+    <div class="tour-inner">
+      <p class="eyebrow center" data-i18n="tour.eyebrow">A Closer Look</p>
+      <h2 class="center" data-i18n="tour.h2">Two things that make this actually work.</h2>
+
+      <div class="tour-row">
+        <div class="tour-copy">
+          <span class="tour-num">01</span>
+          <h3 data-i18n="tour.row1.title">Customers just talk. That's the whole interface.</h3>
+          <p data-i18n="tour.row1.desc">No "press 1 for pickup." No spelling out order numbers. Customers order the way they already talk to your staff — full sentences, interruptions, changes of mind — and OrderVox keeps up.</p>
+          <ul class="tour-list">
+            <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="tour.row1.li1">Understands natural speech, not rigid commands</span></li>
+            <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="tour.row1.li2">Handles interruptions and order changes mid-sentence</span></li>
+            <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="tour.row1.li3">Auto-detects English, Spanish, or Dari and keeps speaking it</span></li>
+            <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="tour.row1.li4">Every item confirmed back before it's added — never guesses</span></li>
+          </ul>
+        </div>
+        <div class="tour-visual" aria-hidden="true">
+          <div class="tour-card tour-card-convo">
+            <div class="tour-convo-line ai"><span class="tour-convo-role">OrderVox</span>Of course — one Kabuli Palaw. Pickup or delivery?</div>
+            <div class="tour-convo-line customer"><span class="tour-convo-role">Customer</span>Actually, make it two, for pickup.</div>
+            <div class="tour-convo-line ai"><span class="tour-convo-role">OrderVox</span>Got it — two Kabuli Palaw, pickup. Anything else?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-row reverse">
+        <div class="tour-copy">
+          <span class="tour-num">02</span>
+          <h3 data-i18n="tour.row2.title">Every call answered. Every order confirmed. Automatically.</h3>
+          <p data-i18n="tour.row2.desc">OrderVox doesn't just pick up — it closes the loop. The moment an order is placed, the customer gets a text with the total and pickup time, so your phone doesn't ring again with "is my order ready yet?"</p>
+          <ul class="tour-list">
+            <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="tour.row2.li1">Answers on the first ring, 24/7, even after close</span></li>
+            <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="tour.row2.li2">Texts an order confirmation the second the call ends</span></li>
+            <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="tour.row2.li3">Warm handoff to a real person for anything it can't confidently handle</span></li>
+            <li><svg width="16" height="16"><use href="#icon-check"/></svg><span data-i18n="tour.row2.li4">Every call and order logged to your dashboard automatically</span></li>
+          </ul>
+        </div>
+        <div class="tour-visual" aria-hidden="true">
+          <div class="tour-card tour-card-sms">
+            <svg width="20" height="20"><use href="#icon-message"/></svg>
+            <div class="tour-sms-bubble">
+              <strong data-i18n="tour.row2.smsTitle">Order confirmed!</strong>
+              <span data-i18n="tour.row2.smsBody">2x Kabuli Palaw — $24.50 — ready in ~15 min. See you soon!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ DASHBOARD PREVIEW ============ -->
   <section class="dash" id="dashboard">
     <div class="dash-inner">
@@ -388,34 +448,39 @@
 
   <!-- ============ SUBSCRIBE / DEMO FORM ============ -->
   <section class="subscribe" id="subscribe">
-    <div class="subscribe-inner">
-      <p class="eyebrow center" data-i18n="subscribe.eyebrow">Get Started</p>
-      <h2 data-i18n="subscribe.h2">Book your free demo</h2>
-      <p data-i18n="subscribe.p">Tell us a bit about your restaurant and we'll reach out to set up your live demo.</p>
+    <div class="subscribe-grid">
+      <div class="subscribe-visual" aria-hidden="true">
+        <img src="illustrations/contact-us.svg" alt="" width="420" height="420" loading="lazy" />
+      </div>
+      <div class="subscribe-inner">
+        <p class="eyebrow center" data-i18n="subscribe.eyebrow">Get Started</p>
+        <h2 data-i18n="subscribe.h2">Book your free demo</h2>
+        <p data-i18n="subscribe.p">Tell us a bit about your restaurant and we'll reach out to set up your live demo.</p>
 
-      <form id="subscribe-form" class="subscribe-form" novalidate>
-        <div class="form-row">
-          <label for="name" data-i18n="subscribe.labelName">Your name</label>
-          <input type="text" id="name" name="name" autocomplete="name" data-i18n-placeholder="subscribe.placeholderName" placeholder="Jane Doe" />
-        </div>
-        <div class="form-row">
-          <label for="restaurantName" data-i18n="subscribe.labelRestaurant">Restaurant name</label>
-          <input type="text" id="restaurantName" name="restaurantName" autocomplete="organization" data-i18n-placeholder="subscribe.placeholderRestaurant" placeholder="Kabul Kitchen" />
-        </div>
-        <div class="form-row">
-          <label for="phone" data-i18n="subscribe.labelPhone">Contact phone</label>
-          <input type="tel" id="phone" name="phone" autocomplete="tel" data-i18n-placeholder="subscribe.placeholderPhone" placeholder="(555) 123-4567" />
-        </div>
-        <div class="form-row">
-          <label for="email"><span data-i18n="subscribe.labelEmail">Email</span> <span class="required">*</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" data-i18n-placeholder="subscribe.placeholderEmail" placeholder="you@yourrestaurant.com" required />
-        </div>
-        <button type="submit" class="btn btn-primary btn-lg form-submit">
-          <span class="btn-label" data-i18n="subscribe.button">Book My Demo</span>
-        </button>
-        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-        <p class="form-microtrust" data-i18n="subscribe.microtrust">Free demo · No commitment · No long-term contract</p>
-      </form>
+        <form id="subscribe-form" class="subscribe-form" novalidate>
+          <div class="form-row">
+            <label for="name" data-i18n="subscribe.labelName">Your name</label>
+            <input type="text" id="name" name="name" autocomplete="name" data-i18n-placeholder="subscribe.placeholderName" placeholder="Jane Doe" />
+          </div>
+          <div class="form-row">
+            <label for="restaurantName" data-i18n="subscribe.labelRestaurant">Restaurant name</label>
+            <input type="text" id="restaurantName" name="restaurantName" autocomplete="organization" data-i18n-placeholder="subscribe.placeholderRestaurant" placeholder="Kabul Kitchen" />
+          </div>
+          <div class="form-row">
+            <label for="phone" data-i18n="subscribe.labelPhone">Contact phone</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" data-i18n-placeholder="subscribe.placeholderPhone" placeholder="(555) 123-4567" />
+          </div>
+          <div class="form-row">
+            <label for="email"><span data-i18n="subscribe.labelEmail">Email</span> <span class="required">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" data-i18n-placeholder="subscribe.placeholderEmail" placeholder="you@yourrestaurant.com" required />
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg form-submit">
+            <span class="btn-label" data-i18n="subscribe.button">Book My Demo</span>
+          </button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <p class="form-microtrust" data-i18n="subscribe.microtrust">Free demo · No commitment · No long-term contract</p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -479,8 +544,12 @@
 
 <footer class="footer">
   <div class="footer-inner">
-    <span>© <span id="year"></span> OrderVox</span>
-    <a href="mailto:saharbaher2019@gmail.com">saharbaher2019@gmail.com</a>
+    <span>© <span id="year"></span> Order<span class="brand-vox">Vox</span></span>
+    <span class="footer-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="mailto:saharbaher2019@gmail.com">saharbaher2019@gmail.com</a>
+    </span>
   </div>
 </footer>
 
