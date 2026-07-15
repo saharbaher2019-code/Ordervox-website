@@ -6,7 +6,11 @@ const nodemailer = require("nodemailer");
 
 const app = express();
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+// Serves the compiled React + Framer Motion app (built from ./app via
+// `npm run build`, output lands in ./public_dist — see app/vite.config.js).
+// The API routes below are unchanged, so the frontend rebuild doesn't touch
+// the subscribe-form contract at all.
+app.use(express.static(path.join(__dirname, "public_dist")));
 
 const DATA_DIR = path.join(__dirname, "data");
 const DATA_FILE = path.join(DATA_DIR, "subscribers.json");
@@ -36,6 +40,63 @@ if (process.env.SMTP_USER && process.env.SMTP_PASS) {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Sent straight back to the person who just filled out the form, so they
+// know what happens next instead of wondering if the request went through.
+// Kept in the language they were browsing the site in.
+const NEXT_STEPS_EMAIL = {
+  en: {
+    subject: "You're on the list — here's what happens next",
+    body: (name) => [
+      `Hi ${name || "there"},`,
+      "",
+      "Thanks for requesting a demo of OrderVox! Here's exactly what happens next:",
+      "",
+      "1. We'll reach out within 1 business day to schedule a free 15-minute demo call.",
+      "2. On that call, we'll set up your menu and connect your restaurant's phone line together — this is when your 14-day free trial starts. No credit card required.",
+      "3. Once you're live, we'll send you your dashboard login so you can see every call, order, and transcript in one place.",
+      "",
+      "No self-serve wizard, no waiting around — we do the setup with you personally.",
+      "",
+      "Talk soon,",
+      "The OrderVox Team",
+    ].join("\n"),
+  },
+  es: {
+    subject: "Ya estás en la lista — esto es lo que sigue",
+    body: (name) => [
+      `Hola ${name || ""}`.trim() + ",",
+      "",
+      "¡Gracias por solicitar una demo de OrderVox! Esto es exactamente lo que sigue:",
+      "",
+      "1. Nos pondremos en contacto en menos de 1 día hábil para agendar una demo gratuita de 15 minutos.",
+      "2. En esa llamada, configuramos tu menú y conectamos la línea telefónica de tu restaurante juntos — ahí comienza tu prueba gratuita de 14 días. No se requiere tarjeta de crédito.",
+      "3. Una vez que estés en vivo, te enviaremos tu acceso al panel para que veas cada llamada, pedido y transcripción en un solo lugar.",
+      "",
+      "Sin asistente de autoservicio, sin esperas — hacemos la configuración contigo, en persona.",
+      "",
+      "Hablamos pronto,",
+      "El equipo de OrderVox",
+    ].join("\n"),
+  },
+  prs: {
+    subject: "شما در لیست هستید — مراحل بعدی این‌گونه است",
+    body: (name) => [
+      `${name ? name + " عزیز،" : "سلام،"}`,
+      "",
+      "از درخواست دموی OrderVox متشکریم! مراحل بعدی دقیقاً این‌گونه است:",
+      "",
+      "۱. ما ظرف ۱ روز کاری با شما تماس می‌گیریم تا یک دموی رایگان ۱۵ دقیقه‌ای هماهنگ کنیم.",
+      "۲. در آن تماس، منو و خط تلفن رستوران شما را با هم راه‌اندازی می‌کنیم — از همان‌جا دوره آزمایشی رایگان ۱۴ روزه شما آغاز می‌شود. نیازی به کارت اعتباری نیست.",
+      "۳. به‌محض فعال شدن، اطلاعات ورود به داشبورد را برایتان می‌فرستیم تا هر تماس، سفارش و متن گفتگو را در یک‌جا ببینید.",
+      "",
+      "بدون ویزارد خودکار، بدون معطلی — راه‌اندازی را شخصاً با شما انجام می‌دهیم.",
+      "",
+      "به‌زودی صحبت می‌کنیم،",
+      "تیم OrderVox",
+    ].join("\n"),
+  },
+};
 
 // Every subscription request notification goes to these addresses by
 // default. Override by setting NOTIFY_EMAIL in .env to a comma-separated
@@ -87,6 +148,18 @@ app.post("/api/subscribe", async (req, res) => {
         ].join("\n"),
       })
       .catch((err) => console.error("Notification email failed:", err.message));
+
+    // Confirmation back to the person who just subscribed, so they know
+    // what to expect instead of wondering if the form actually worked.
+    const template = NEXT_STEPS_EMAIL[entry.language] || NEXT_STEPS_EMAIL.en;
+    transporter
+      .sendMail({
+        from: process.env.SMTP_USER,
+        to: entry.email,
+        subject: template.subject,
+        text: template.body(entry.name),
+      })
+      .catch((err) => console.error("Next-steps email failed:", err.message));
   }
 
   res.json({ ok: true });
