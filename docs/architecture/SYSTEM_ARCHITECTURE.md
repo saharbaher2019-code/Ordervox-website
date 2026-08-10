@@ -106,9 +106,13 @@ tax-engine/
 - Tax tables ship as data files with checksums, sourced from IRS publications.
 - Form mapping is a separate layer: `CalculationResult → form_instances` per tax-year form versions.
 
+## 8a. Repository & operational boundary (owner-approved correction)
+
+The tax product is a **separate application from the OrderVox website**: its own repository, database, object storage, encryption boundary (no shared keys), secrets, environments, CI/CD, cloud resources, logging, analytics boundary, auth configuration and deployment pipeline. Taxpayer data is never copied into OrderVox systems; no shared production databases, logs, or document storage. A common parent company may operate both, but they remain operationally separated. The Stage 0 docs in `Ordervox-website` remain as review evidence; the implementation lives in the dedicated tax repository (see `docs/architecture/MIGRATION_MANIFEST.md`).
+
 ## 9. Tax-year versioning strategy
 
-`tax_year` is immutable on a return; engine resolution is `registry.get(tax_year)` — there is no "current year" default in engine code. Old-year modules are frozen (CI blocks edits after season close except flagged corrections, which bump a module patch version recorded on every calculation). Tests are partitioned per year; a 2026 rule change can never alter a 2025 test result. New-year onboarding checklist = re-verification process in `CURRENT_TAX_YEAR_STATUS.md`.
+`tax_year` is immutable on a return; engine resolution is `registry.get(tax_year)` — there is no "current year" default in engine code. `federal/2025` (reference/golden year) and `federal/2026` (production target) coexist as parallel modules; neither can overwrite the other. Authoritative artifacts backing each year carry a status lifecycle (`DRAFT → PRELIMINARY → RELEASED → ATS_VALID → PRODUCTION_VALID`, plus `SUPERSEDED`); production calculation for a tax year requires PRODUCTION_VALID sources. Old-year modules are frozen (CI blocks edits after season close except flagged corrections, which bump a module patch version recorded on every calculation). Tests are partitioned per year; a 2026 rule change can never alter a 2025 test result. New-year onboarding checklist = re-verification process in `CURRENT_TAX_YEAR_STATUS.md`.
 
 ## 10. Explanation system
 

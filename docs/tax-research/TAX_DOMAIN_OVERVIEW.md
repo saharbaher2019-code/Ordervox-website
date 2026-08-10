@@ -1,6 +1,6 @@
 # Tax Domain Overview — U.S. Individual Income Tax (Plain English)
 
-Audience: product owner (non-tax-expert). Everything here traces to IRS primary sources; see `SOURCE_REGISTER.md`. Figures below are for **tax year 2025** (returns filed in early 2026) and were verified against IRS.gov in August 2026.
+Audience: product owner (non-tax-expert). Everything here traces to IRS primary sources; see `SOURCE_REGISTER.md`. Figures below are for **tax year 2025** and were verified against IRS.gov in August 2026. **Role of TY2025 (owner-approved):** reference/golden validation year — finalized forms make it the authoritative basis for engine design and golden tests. **TY2026 is the production target**; its figures/forms are still draft or evolving and are tracked separately with artifact statuses (see `CURRENT_TAX_YEAR_STATUS.md`).
 
 ## 1. How a tax return actually works
 

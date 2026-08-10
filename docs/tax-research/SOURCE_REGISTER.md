@@ -4,6 +4,8 @@ Every implemented rule must have a row here before its code merges. Blogs are ne
 
 Schema: `rule_id | tax_year | jurisdiction | subject | authoritative_source | source_version/date | implementation_module | tests | last_verified`
 
+**Artifact status (required on every row going forward):** `DRAFT | PRELIMINARY | RELEASED | ATS_VALID | PRODUCTION_VALID | SUPERSEDED`. TY2025 rows below are RELEASED (finalized reference year). TY2026 rows may enter as DRAFT/PRELIMINARY but can never back production calculations until promoted to PRODUCTION_VALID with explicit re-verification. TY2025 is the reference/golden validation year; **TY2026 is the production target** (see `CURRENT_TAX_YEAR_STATUS.md`).
+
 | rule_id | tax_year | juris. | subject | source | version/date | module | tests | verified |
 |---|---|---|---|---|---|---|---|---|
 | FED-2025-STD-DED | 2025 | US | Standard deduction amounts | IRS Topic 551; 2025 i1040 | 2025 instr. (Feb 2026) | tax-engine/federal/2025/standardDeduction | pending | 2026-08-10 |

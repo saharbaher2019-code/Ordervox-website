@@ -23,10 +23,10 @@
 
 Definition of Done for every tax feature (per spec §40): authoritative rule documented in register · schema defined · deterministic calc · provenance · edge cases · validation · tests · user explanation · security review · audit logging · scope boundaries documented.
 
-## 2. Recommended immediate next steps (after owner approves Stage 0)
-1. Owner decisions needed: (a) hybrid e-file strategy, (b) California as first state, (c) budget for e-file vendor evaluation, (d) confirm TY2025 as V1 target.
-2. Stage 1 foundation build.
-3. Begin per-rule source-register population for Stage 8 rules (can parallel Stage 1–7).
+## 2. Owner decisions — RESOLVED (2026-08)
+- (a) **Hybrid e-file strategy: APPROVED** (no vendor selection/integration before the appropriate stage; Stage 15 separately gated). (b) **California first state: APPROVED** (Stage 13). (c) **Vendor evaluation: APPROVED — evaluation only, no commitment.** (d) **Tax-year correction: TY2025 = reference/golden validation year, TY2026 = production target**; engine builds/validates against finalized TY2025 sources while TY2026 artifacts are tracked through the DRAFT→PRODUCTION_VALID lifecycle.
+- Stage 8+ engine work: golden tests target TY2025; TY2026 modules are populated as IRS artifacts finalize. Capability rollout follows the progressive tiers in `PRODUCT_REQUIREMENTS.md` §2a.
+- Implementation happens in the dedicated tax repository (see SYSTEM_ARCHITECTURE §8a); this repo retains Stage 0 documentation as evidence.
 
 ## 3. Risk register
 

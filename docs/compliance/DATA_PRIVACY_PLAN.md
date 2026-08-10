@@ -1,8 +1,22 @@
 # Data Privacy Plan & AI Data Boundary
 
+> **Disclaimer:** This document is engineering/compliance research prepared with AI assistance. It is **not legal advice**. Items whose legal interpretation is uncertain are marked **LEGAL REVIEW REQUIRED** and must be confirmed by qualified counsel before launch.
+
 ## 1. Legal frame (why a generic privacy policy is not enough)
 
-- **IRC §7216** (criminal) and **§6713** (civil): tax return preparers — explicitly including providers of software used to prepare returns — may not use or disclose tax return information except as permitted. Treas. Reg. §301.7216-3 requires **separate, specific, taxpayer-signed consent** with mandated language/format for any use beyond preparation (marketing, analytics beyond service operation, disclosure to third parties, offshore processing). Consent must not be a condition of service where the regs forbid bundling.
+- **IRC §7216** (criminal) and **§6713** (civil) restrict use/disclosure of tax return information by tax return preparers, including providers of software used to prepare returns. Not all third-party processing requires taxpayer consent — the regulations (Treas. Reg. §§301.7216-2 and -3) distinguish permitted activities from consent-required ones. The categories below drive design; the classification of each concrete data flow is **LEGAL REVIEW REQUIRED**:
+  1. **Uses/disclosures permitted as part of return preparation** — processing needed to prepare, calculate, validate and (eventually) file the return; no separate consent expected. (Treas. Reg. §301.7216-2 auxiliary-services provisions — verify applicability.)
+  2. **Processing covered by regulatory exceptions** — e.g., disclosures pursuant to legal process, certain quality/peer reviews. Enumerate per §301.7216-2 before relying on any.
+  3. **Uses requiring taxpayer consent** (§301.7216-3) — using return info for purposes beyond preparation.
+  4. **Disclosures requiring taxpayer consent** — providing return info to third parties beyond permitted categories.
+  5. **Offshore disclosures/processing** — additional consent/SSN-redaction constraints apply to disclosures outside the U.S. **LEGAL REVIEW REQUIRED** before any offshore processing; default: none.
+  6. **Marketing or unrelated use** — consent-required; consent language/format is regulator-prescribed and must not be bundled with service acceptance.
+  7. **Service-provider processing** (hosting, storage, OCR vendors) — likely permissible as auxiliary services under contract without taxpayer consent, but classification per provider is **LEGAL REVIEW REQUIRED**.
+  8. **AI-provider processing** — treated conservatively as potentially consent-relevant; whether an LLM provider under a zero-retention service contract is an "auxiliary service" (no consent) or a consent-required disclosure is **unsettled — LEGAL REVIEW REQUIRED**. Our AI Data Boundary minimizes what could be at issue either way.
+  9. **Analytics** — operational/service analytics vs. product/marketing analytics must be separated; the latter is treated as consent-required. Boundary line: **LEGAL REVIEW REQUIRED**.
+  10. **Professional-review disclosure** (future marketplace) — disclosure to a reviewing preparer; consent and PTIN/due-diligence implications to be analyzed at that stage.
+
+**Requirement provenance labels** used throughout this plan: **[LEGAL]** = legal requirement (statute/regulation), **[POLICY]** = product-owner privacy policy choice (stricter than law), **[PRACTICE]** = security best practice. Example: SSNs never sent to any LLM = [POLICY]+[PRACTICE] (conservative; not asserted as a settled legal mandate). Separate, unbundled consent for marketing use = [LEGAL].
 - **FTC Safeguards Rule** (GLBA): tax prep software firms are "financial institutions" — requires a written information security plan, designated qualified individual, risk assessment, MFA, encryption, vendor oversight, incident response, and (per Pub 4557) reporting of data breaches to the IRS/states.
 - **State privacy laws** (CCPA/CPRA etc.) layer on top; design for the strictest.
 
